@@ -1,1 +1,19 @@
-# repo0
+# repo0# Use the official lightweight Node.js 14 image.
+# https://hub.docker.com/_/node
+FROM node:14-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json before other files
+# Utilize Docker cache to save re-installing dependencies if unchanged
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy local code to the container image
+COPY . ./
+
+# Set the command to run your app using `CMD`
+CMD ["npm", "start"]
