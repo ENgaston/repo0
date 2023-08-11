@@ -12,7 +12,7 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy local code to the container imageuuwuuwuwwhwhhwhwwhhwh
+# Copy local code to the container image
 COPY . ./
 
 # Set the command to run your app using `CMD`
